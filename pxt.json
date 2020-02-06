@@ -1,0 +1,12 @@
+{
+    "name": "BLEUart",
+    "description": "BLE UART"
+    "files": [
+        "bleuart.ts",
+        "bleuart.cpp"
+    ],
+    "dependencies": {
+        "core": "*"
+    }
+}
+
