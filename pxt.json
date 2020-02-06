@@ -5,7 +5,8 @@
         "bleuart.ts",
         "bleuart.cpp",
         "shims.d.ts",
-        "enums.d.ts"
+        "enums.d.ts",
+        "BLEHF2Service.h"
     ],
     "dependencies": {
         "core": "*",
