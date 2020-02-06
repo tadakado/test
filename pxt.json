@@ -3,7 +3,9 @@
     "description": "BLE UART",
     "files": [
         "bleuart.ts",
-        "bleuart.cpp"
+        "bleuart.cpp",
+        "shims.d.ts",
+        "enums.d.ts"
     ],
     "dependencies": {
         "core": "*"
