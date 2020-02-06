@@ -1,6 +1,6 @@
 {
     "name": "BLEUart",
-    "description": "BLE UART"
+    "description": "BLE UART",
     "files": [
         "bleuart.ts",
         "bleuart.cpp"
