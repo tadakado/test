@@ -8,7 +8,7 @@ using namespace pxt;
 /**
  * Support for additional Bluetooth services.
  */
-//% color=#0082FB weight=96 icon="\uf294"
+//% color=#0082FB weight=96 icon="\uf2db"
 namespace bleuart {
     BLEUARTService *uart = NULL;
     BLEHF2Service* pHF2 = NULL;
