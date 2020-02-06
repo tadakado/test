@@ -1,7 +1,9 @@
 //% color=#f44242 icon="\uf185"
 namespace BLEUart {
+    //% weight=100
+    //% blockId=BLEUart_start block="start BLE Uart Service"
     export function start() {
-        BLEUart.startService()
+        startService()
     }
 
     //% shim=BLEUart::startService
