@@ -6,10 +6,10 @@ namespace BLEUart {
         startService()
     }
 
-    //% weight=100
-    //% blockId=BLEUart_startService block="00start BLE Uart Service"
+    // weight=100
+    // blockId=BLEUart_startService block="00start BLE Uart Service"
     //% shim=BLEUart::startService
-    export function startService(): void {
+    function startService(): void {
     }
 }
 
