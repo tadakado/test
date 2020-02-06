@@ -1,4 +1,4 @@
-//% color=#f44242 icon="\uf185"
+//% color=#f44242 icon="\uf2db"
 namespace BLEUart {
     //% weight=100
     //% blockId=BLEUart_start block="start BLE Uart Service"
