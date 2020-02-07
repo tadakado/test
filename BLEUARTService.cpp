@@ -45,7 +45,7 @@ static GattCharacteristic* txCharacteristic = NULL;
 /**
   * A callback function for whenever a Bluetooth device consumes our TX Buffer
   */
-void on_confirmation(uint16_t handle)
+void on_confirmation2(uint16_t handle)
 {
     if(handle == rxCharacteristic->getValueAttribute().getHandle())
     {
@@ -89,7 +89,7 @@ BLEUARTService::BLEUARTService(BLEDevice &_ble, uint8_t rxBufferSize, uint8_t tx
     this->txCharacteristicHandle = txCharacteristic->getValueAttribute().getHandle();
 
     _ble.gattServer().onDataWritten(this, &BLEUARTService::onDataWritten);
-    _ble.gattServer().onConfirmationReceived(on_confirmation);
+    _ble.gattServer().onConfirmationReceived(on_confirmation2);
 }
 
 /**
