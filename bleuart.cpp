@@ -87,6 +87,6 @@ namespace bleuart {
     void onUartDataReceived(String delimiters, Action body) {
       startUartService();
       uart->eventOn(MSTR(delimiters));
-      registerWithDal(MICROBIT_ID_BLE_UART, MICROBIT_UART_S_EVT_DELIM_MATCH, body);
+      registerWithDal(MICROBIT_ID_BLE_UART, BLE_UART_S_EVT_DELIM_MATCH, body);
     }
 }

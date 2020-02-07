@@ -50,7 +50,7 @@ void on_confirmation(uint16_t handle)
     if(handle == rxCharacteristic->getValueAttribute().getHandle())
     {
         txBufferTail = txBufferHead;
-        MicroBitEvent(MICROBIT_ID_NOTIFY, MICROBIT_UART_S_EVT_TX_EMPTY);
+        MicroBitEvent(MICROBIT_ID_NOTIFY, BLE_UART_S_EVT_TX_EMPTY);
     }
 }
 
@@ -116,7 +116,7 @@ void BLEUARTService::onDataWritten(const GattWriteCallbackParams *params) {
                 {
                     //fire an event if there is to block any waiting fibers
                     if(this->delimeters.charAt(delimeterOffset) == c)
-                        MicroBitEvent(MICROBIT_ID_BLE_UART, MICROBIT_UART_S_EVT_DELIM_MATCH);
+                        MicroBitEvent(MICROBIT_ID_BLE_UART, BLE_UART_S_EVT_DELIM_MATCH);
 
                     delimeterOffset++;
                 }
@@ -128,11 +128,11 @@ void BLEUARTService::onDataWritten(const GattWriteCallbackParams *params) {
                 if(rxBufferHead == rxBuffHeadMatch)
                 {
                     rxBuffHeadMatch = -1;
-                    MicroBitEvent(MICROBIT_ID_BLE_UART, MICROBIT_UART_S_EVT_HEAD_MATCH);
+                    MicroBitEvent(MICROBIT_ID_BLE_UART, BLE_UART_S_EVT_HEAD_MATCH);
                 }
             }
             else
-                MicroBitEvent(MICROBIT_ID_BLE_UART, MICROBIT_UART_S_EVT_RX_FULL);
+                MicroBitEvent(MICROBIT_ID_BLE_UART, BLE_UART_S_EVT_RX_FULL);
         }
     }
 }
@@ -285,7 +285,7 @@ int BLEUARTService::send(const uint8_t *buf, int length, MicroBitSerialMode mode
 
 
         if(mode == SYNC_SLEEP)
-            fiber_wake_on_event(MICROBIT_ID_NOTIFY, MICROBIT_UART_S_EVT_TX_EMPTY);
+            fiber_wake_on_event(MICROBIT_ID_NOTIFY, BLE_UART_S_EVT_TX_EMPTY);
 
         ble.gattServer().write(rxCharacteristic->getValueAttribute().getHandle(), temp, size);
 
@@ -508,7 +508,7 @@ int BLEUARTService::eventOn(ManagedString delimeters, MicroBitSerialMode mode)
 
     //block!
     if(mode == SYNC_SLEEP)
-        fiber_wait_for_event(MICROBIT_ID_BLE_UART, MICROBIT_UART_S_EVT_DELIM_MATCH);
+        fiber_wait_for_event(MICROBIT_ID_BLE_UART, BLE_UART_S_EVT_DELIM_MATCH);
 
     return MICROBIT_OK;
 }
@@ -539,7 +539,7 @@ int BLEUARTService::eventAfter(int len, MicroBitSerialMode mode)
 
     //block!
     if(mode == SYNC_SLEEP)
-        fiber_wait_for_event(MICROBIT_ID_BLE_UART, MICROBIT_UART_S_EVT_HEAD_MATCH);
+        fiber_wait_for_event(MICROBIT_ID_BLE_UART, BLE_UART_S_EVT_HEAD_MATCH);
 
     return MICROBIT_OK;
 }
