@@ -23,8 +23,8 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef BLE_UART_SERVICE_H
-#define BLE_UART_SERVICE_H
+#ifndef MICROBIT_UART_SERVICE_H
+#define MICROBIT_UART_SERVICE_H
 
 #include "mbed.h"
 #include "ble/UUID.h"
@@ -32,11 +32,11 @@ DEALINGS IN THE SOFTWARE.
 #include "MicroBitConfig.h"
 #include "MicroBitSerial.h"
 
-#define BLE_UART_S_DEFAULT_BUF_SIZE    20
+#define MICROBIT_UART_S_DEFAULT_BUF_SIZE    20
 
-#define BLE_UART_S_EVT_DELIM_MATCH     1
-#define BLE_UART_S_EVT_HEAD_MATCH      2
-#define BLE_UART_S_EVT_RX_FULL         3
+#define MICROBIT_UART_S_EVT_DELIM_MATCH     1
+#define MICROBIT_UART_S_EVT_HEAD_MATCH      2
+#define MICROBIT_UART_S_EVT_RX_FULL         3
 
 /**
   * Class definition for the custom MicroBit UART Service.
@@ -100,9 +100,9 @@ class BLEUARTService
      * @param rxBufferSize the size of the rxBuffer
      * @param txBufferSize the size of the txBuffer
      *
-     * @note The default size is BLE_UART_S_DEFAULT_BUF_SIZE (20 bytes).
+     * @note The default size is MICROBIT_UART_S_DEFAULT_BUF_SIZE (20 bytes).
      */
-    BLEUARTService(BLEDevice &_ble, uint8_t rxBufferSize = BLE_UART_S_DEFAULT_BUF_SIZE, uint8_t txBufferSize = BLE_UART_S_DEFAULT_BUF_SIZE);
+    BLEUARTService(BLEDevice &_ble, uint8_t rxBufferSize = MICROBIT_UART_S_DEFAULT_BUF_SIZE, uint8_t txBufferSize = MICROBIT_UART_S_DEFAULT_BUF_SIZE);
 
     /**
       * Retreives a single character from our RxBuffer.
